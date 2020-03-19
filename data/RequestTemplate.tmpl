@@ -1,0 +1,27 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {namespace};
+
+use Dragony\TeamspeakApi\Response\SuccessResponse;
+
+class {classname} implements TeamspeakRequestInterface
+{
+    {define_params}
+
+    public function __construct({construct_params})
+    {
+        {init_params}
+    }
+
+    public function getCommandUrl(): string
+    {
+        return '/{command_name}';
+    }
+
+    public function getResponseClass(): string
+    {
+        return SuccessResponse::class;
+    }
+}
