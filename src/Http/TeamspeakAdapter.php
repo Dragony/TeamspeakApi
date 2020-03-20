@@ -55,7 +55,6 @@ class TeamspeakAdapter
     public function request(TeamspeakRequestInterface $request)
     {
         $response = $this->client->sendRequest($this->createPsr7Request($request));
-        var_dump($this->createPsr7Request($request));
         $json = json_decode((string)$response->getBody(), true);
 
         if(isset($json['status']['code']) and $json['status']['code'] > 0){

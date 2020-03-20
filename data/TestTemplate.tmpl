@@ -1,0 +1,24 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Request;
+
+use {request_namespace};
+use Dragony\TeamspeakApi\Response\GenericResponse;
+use Helper\AdapterFactory;
+use PHPUnit\Framework\TestCase;
+
+class {test_class} extends TestCase
+{
+    public function testRequest()
+    {
+        $adapter = AdapterFactory::create();
+
+        $request = new {request_class}();
+
+        $response = $adapter->request($request);
+
+        $this->assertInstanceOf(GenericResponse::class, $response);
+    }
+}
