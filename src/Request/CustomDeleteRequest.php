@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Dragony\TeamspeakApi\Request;
 
-use Dragony\TeamspeakApi\Response\SuccessResponse;
+use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class CustomDeleteRequest implements TeamspeakRequestInterface
 {
@@ -24,6 +24,6 @@ class CustomDeleteRequest implements TeamspeakRequestInterface
 
     public function getResponseClass(): string
     {
-        return SuccessResponse::class;
+        return GenericResponse::class;
     }
 }

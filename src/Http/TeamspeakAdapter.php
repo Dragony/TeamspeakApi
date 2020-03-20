@@ -7,7 +7,7 @@ namespace Dragony\TeamspeakApi\Http;
 use Buzz\Client\Curl;
 use Dragony\TeamspeakApi\Request\TeamspeakRequestInterface;
 use Dragony\TeamspeakApi\Response\ErrorResponse;
-use Dragony\TeamspeakApi\Response\SuccessResponse;
+use Dragony\TeamspeakApi\Response\GenericResponse;
 use JMS\Serializer\SerializerBuilder;
 use JMS\Serializer\SerializerInterface;
 use Nyholm\Psr7\Factory\Psr17Factory;
@@ -42,21 +42,33 @@ class TeamspeakAdapter
 
     public function createPsr7Request(TeamspeakRequestInterface $request): RequestInterface
     {
-        return new Request('GET', $this->credentials->getUrl().($this->serverId ? "/{$this->serverId}" : '').$request->getCommandUrl(), [
-            'x-api-key' => $this->credentials->user
-        ]);
+        $queryString = $this->generateGetParameters($request);
+        return new Request(
+            'GET',
+            $this->credentials->getUrl().($this->serverId ? "/{$this->serverId}" : '').$request->getCommandUrl().($queryString ? '?'.$queryString : ''),
+            [
+                'x-api-key' => $this->credentials->user
+            ]
+        );
     }
 
     public function request(TeamspeakRequestInterface $request)
     {
-        $response = $this->client->sendRequest($request = $this->createPsr7Request($request));
+        $response = $this->client->sendRequest($this->createPsr7Request($request));
+        var_dump($this->createPsr7Request($request));
         $json = json_decode((string)$response->getBody(), true);
 
         if(isset($json['status']['code']) and $json['status']['code'] > 0){
             return $this->serializer->deserialize(json_encode($json['status']), ErrorResponse::class, 'json');
-        }else{
-            return $json;
         }
+        $response = $this->serializer->deserialize(json_encode($json), GenericResponse::class, 'json');
+
+        $responseClass = $request->getResponseClass();
+        if($responseClass !== GenericResponse::class){
+            $response->body = $this->serializer->deserialize(json_encode($json['body']), $responseClass, 'json');
+        }
+
+        return $response;
     }
 
     /**
@@ -73,5 +85,20 @@ class TeamspeakAdapter
     public function setServerId($serverId): void
     {
         $this->serverId = $serverId;
+    }
+
+    protected function generateGetParameters(TeamspeakRequestInterface $request)
+    {
+        $variables = get_object_vars($request);
+        $convertedVariables = [];
+        foreach($variables as $variable => $value){
+            if(is_bool($value)){
+                $convertedVariables[] = "-{$variable}";
+            }else if(null !== $value){
+                $convertedVariables[] = "{$variable}={$value}";
+            }
+        }
+
+        return implode("&", $convertedVariables);
     }
 }

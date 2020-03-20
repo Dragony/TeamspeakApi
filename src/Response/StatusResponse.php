@@ -4,13 +4,8 @@ namespace Dragony\TeamspeakApi\Response;
 
 use JMS\Serializer\Annotation as JMS;
 
-class SuccessResponse
+class StatusResponse
 {
-    /**
-     * @JMS\Type(name="array")
-     */
-    public $body;
-
     /**
      * @JMS\Type(name="integer")
      */

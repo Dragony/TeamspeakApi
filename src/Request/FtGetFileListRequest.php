@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Dragony\TeamspeakApi\Request;
 
-use Dragony\TeamspeakApi\Response\SuccessResponse;
+use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class FtGetFileListRequest implements TeamspeakRequestInterface
 {
@@ -26,6 +26,6 @@ class FtGetFileListRequest implements TeamspeakRequestInterface
 
     public function getResponseClass(): string
     {
-        return SuccessResponse::class;
+        return GenericResponse::class;
     }
 }
