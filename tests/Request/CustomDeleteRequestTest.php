@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Request;
 
 use Dragony\TeamspeakApi\Request\CustomDeleteRequest;
-use Dragony\TeamspeakApi\Response\GenericResponse;
 use Helper\AdapterFactory;
+use Helper\ResponseReader;
 use PHPUnit\Framework\TestCase;
 
 class CustomDeleteRequestTest extends TestCase
@@ -19,6 +19,6 @@ class CustomDeleteRequestTest extends TestCase
 
         $response = $adapter->request($request);
 
-        $this->assertInstanceOf(GenericResponse::class, $response);
+        $this->assertInstanceOf($request->getResponseClass(), $response, ResponseReader::getMessage($response));
     }
 }
