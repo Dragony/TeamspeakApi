@@ -17,8 +17,8 @@ class ChannelClientDelPermRequestTest extends TestCase
         $adapter = AdapterFactory::create();
         $adapter->setServerId(1);
 
-        $channel = ExistingItems::getExistingChannel();
-        $client = ExistingItems::getExistingClient();
+        $channel = ExistingItems::getExistingChannel()->cid;
+        $client = ExistingItems::getExistingClient(ExistingItems::CLIENT_TYPE_VOICE);
         $perm = ExistingItems::getExistingChannelPerm();
         $request = new ChannelClientDelPermRequest($channel, $client['client_database_id'], $perm['permid']);
 

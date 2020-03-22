@@ -11,7 +11,7 @@ class ChannelDeleteRequest implements TeamspeakRequestInterface
     public $cid; /* channelID */
 	public $force; /* 1|0 */
 
-    public function __construct($cid, $force)
+    public function __construct($cid, $force = 0)
     {
         $this->cid = $cid;
 		$this->force = $force;

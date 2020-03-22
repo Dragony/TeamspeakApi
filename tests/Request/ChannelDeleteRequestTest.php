@@ -7,6 +7,7 @@ namespace Request;
 use Dragony\TeamspeakApi\Request\ChannelDeleteRequest;
 use Helper\AdapterFactory;
 use Helper\ResponseReader;
+use Helper\TeamspeakArtifactFactory;
 use PHPUnit\Framework\TestCase;
 
 class ChannelDeleteRequestTest extends TestCase
@@ -14,8 +15,10 @@ class ChannelDeleteRequestTest extends TestCase
     public function testRequest()
     {
         $adapter = AdapterFactory::create();
+        $adapter->setServerId(1);
 
-        $request = new ChannelDeleteRequest();
+        $newChannelId = TeamspeakArtifactFactory::createChannel();
+        $request = new ChannelDeleteRequest($newChannelId, 1);
 
         $response = $adapter->request($request);
 

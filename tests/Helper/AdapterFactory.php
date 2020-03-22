@@ -8,6 +8,6 @@ class AdapterFactory
 {
     public static function create()
     {
-        return new TeamspeakAdapter('http://BABDac2dGkzPTElXfaR5XpjOZYpQVj8A7Cynmyq@localhost:10080');
+        return new TeamspeakAdapter('http://BAAMrKv9jOHsW8Boe70r5cYZMobIYfHs72KVGAx@localhost:10080');
     }
 }

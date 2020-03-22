@@ -4,17 +4,26 @@ declare(strict_types=1);
 
 namespace Dragony\TeamspeakApi\Request;
 
+use Dragony\TeamspeakApi\Channel\Channel;
 use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class ChannelEditRequest implements TeamspeakRequestInterface
 {
-    public $cid; /* channelID */
-	public $hannel_properties...;
+    /**
+     * @var Channel
+     */
+    public $channel;
 
-    public function __construct($cid, bool $hannel_properties...)
+    public function __construct(Channel $channel)
     {
-        $this->cid = $cid;
-		$this->hannel_properties... = $hannel_properties...;
+        $this->channel = clone $channel;
+
+        // We can't write all properties, so we need to unset those
+        foreach(get_object_vars($this->channel) as $variable => $value){
+            if(!in_array($variable, ['cid', 'pid']) and strpos($variable, 'channel_') !== 0){
+                $this->channel->{$variable} = null;
+            }
+        }
     }
 
     public function getCommandUrl(): string

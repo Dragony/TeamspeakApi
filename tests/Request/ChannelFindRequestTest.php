@@ -14,8 +14,9 @@ class ChannelFindRequestTest extends TestCase
     public function testRequest()
     {
         $adapter = AdapterFactory::create();
+        $adapter->setServerId(1);
 
-        $request = new ChannelFindRequest();
+        $request = new ChannelFindRequest('default');
 
         $response = $adapter->request($request);
 

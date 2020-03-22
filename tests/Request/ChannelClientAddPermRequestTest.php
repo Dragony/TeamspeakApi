@@ -17,10 +17,10 @@ class ChannelClientAddPermRequestTest extends TestCase
         $adapter = AdapterFactory::create();
         $adapter->setServerId(1);
 
-        $client = ExistingItems::getExistingClient();
-        $channel = ExistingItems::getExistingChannel();
+        $client = ExistingItems::getExistingClient(ExistingItems::CLIENT_TYPE_VOICE);
+        $channel = ExistingItems::getExistingChannel()->cid;
         $perm = ExistingItems::getExistingChannelPerm();
-        $request = new ChannelClientAddPermRequest($channel, $client['client_database_id'], $perm['permid'], $perm['permvalue']);
+        $request = new ChannelClientAddPermRequest($channel, $client['client_database_id'], $perm['permvalue'], $perm['permid']);
 
         $response = $adapter->request($request);
 

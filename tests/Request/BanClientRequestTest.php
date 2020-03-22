@@ -7,7 +7,7 @@ namespace Request;
 use Dragony\TeamspeakApi\Request\BanClientRequest;
 use Dragony\TeamspeakApi\Response\ErrorResponse;
 use Helper\AdapterFactory;
-use Helper\ResponseReader;
+use Helper\ExistingItems;
 use PHPUnit\Framework\TestCase;
 
 class BanClientRequestTest extends TestCase
@@ -16,7 +16,7 @@ class BanClientRequestTest extends TestCase
     {
         $adapter = AdapterFactory::create();
 
-        $request = new BanClientRequest(1);
+        $request = new BanClientRequest(ExistingItems::getExistingClient()['clid']);
         $adapter->setServerId(1);
 
         $response = $adapter->request($request);

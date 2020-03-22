@@ -12,7 +12,7 @@ class ChannelDelPermRequest implements TeamspeakRequestInterface
 	public $permid; /* permID */
 	public $permsid; /* permName */
 
-    public function __construct($cid, $permid, $permsid)
+    public function __construct($cid, $permid = null, $permsid = null)
     {
         $this->cid = $cid;
 		$this->permid = $permid;

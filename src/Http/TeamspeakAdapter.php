@@ -42,7 +42,7 @@ class TeamspeakAdapter
 
     public function createPsr7Request(TeamspeakRequestInterface $request): RequestInterface
     {
-        $queryString = $this->generateGetParameters($request);
+        $queryString = implode("&", $this->generateGetParameters($request));
         return new Request(
             'GET',
             $this->credentials->getUrl().($this->serverId ? "/{$this->serverId}" : '').$request->getCommandUrl().($queryString ? '?'.$queryString : ''),
@@ -60,12 +60,7 @@ class TeamspeakAdapter
         if(isset($json['status']['code']) and $json['status']['code'] > 0){
             return $this->serializer->deserialize(json_encode($json['status']), ErrorResponse::class, 'json');
         }
-        $response = $this->serializer->deserialize(json_encode($json), GenericResponse::class, 'json');
-
-        $responseClass = $request->getResponseClass();
-        if($responseClass !== GenericResponse::class){
-            $response->body = $this->serializer->deserialize(json_encode($json['body']), $responseClass, 'json');
-        }
+        $response = $this->serializer->deserialize(json_encode($json), $responseClass = $request->getResponseClass(), 'json');
 
         return $response;
     }
@@ -86,18 +81,19 @@ class TeamspeakAdapter
         $this->serverId = $serverId;
     }
 
-    protected function generateGetParameters(TeamspeakRequestInterface $request)
+    protected function generateGetParameters($request)
     {
         $variables = get_object_vars($request);
         $convertedVariables = [];
         foreach($variables as $variable => $value){
-            if(is_bool($value)){
+            if(is_bool($value)) {
                 $convertedVariables[] = "-{$variable}";
+            }else if(is_object($value)){
+                $convertedVariables = array_merge($convertedVariables, $this->generateGetParameters($value));
             }else if(null !== $value){
                 $convertedVariables[] = "{$variable}={$value}";
             }
         }
-
-        return implode("&", $convertedVariables);
+        return $convertedVariables;
     }
 }

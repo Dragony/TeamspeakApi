@@ -6,6 +6,7 @@ namespace Request;
 
 use Dragony\TeamspeakApi\Request\ChannelPermListRequest;
 use Helper\AdapterFactory;
+use Helper\ExistingItems;
 use Helper\ResponseReader;
 use PHPUnit\Framework\TestCase;
 
@@ -15,7 +16,7 @@ class ChannelPermListRequestTest extends TestCase
     {
         $adapter = AdapterFactory::create();
 
-        $request = new ChannelPermListRequest();
+        $request = new ChannelPermListRequest(ExistingItems::getExistingChannelPerm());
 
         $response = $adapter->request($request);
 

@@ -14,7 +14,7 @@ class ChannelGroupAddPermRequest implements TeamspeakRequestInterface
 	public $permsid; /* permName */
 	public $permvalue; /* permValue */
 
-    public function __construct(bool $continueonerror = null, $cgid, $permid, $permsid, $permvalue)
+    public function __construct($cgid, $permvalue, $permid = null, $permsid = null, bool $continueonerror = null)
     {
         $this->continueonerror = $continueonerror;
 		$this->cgid = $cgid;

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Dragony\TeamspeakApi\Request;
 
-use Dragony\TeamspeakApi\Response\GenericResponse;
+use Dragony\TeamspeakApi\Response\ChannelListResponse;
 
 class ChannelListRequest implements TeamspeakRequestInterface
 {
@@ -34,6 +34,6 @@ class ChannelListRequest implements TeamspeakRequestInterface
 
     public function getResponseClass(): string
     {
-        return GenericResponse::class;
+        return ChannelListResponse::class;
     }
 }
