@@ -9,16 +9,18 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 class ChannelAddPermRequest implements TeamspeakRequestInterface
 {
     public $continueonerror;
-	public $cid;
-	public $permid;
-    public $permvalue;
+	public $cid; /* channelID */
+	public $permid; /* permID */
+	public $permsid; /* permName */
+	public $permvalue; /* permValue */
 
-    public function __construct($cid, $permid, $permvalue, bool $continueonerror = null)
+    public function __construct($cid, $permvalue, $permid, $permsid, bool $continueonerror = null)
     {
         $this->continueonerror = $continueonerror;
 		$this->cid = $cid;
 		$this->permid = $permid;
-        $this->permvalue = $permvalue;
+		$this->permsid = $permsid;
+		$this->permvalue = $permvalue;
     }
 
     public function getCommandUrl(): string

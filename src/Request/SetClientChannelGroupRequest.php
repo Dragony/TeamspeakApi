@@ -8,9 +8,9 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class SetClientChannelGroupRequest implements TeamspeakRequestInterface
 {
-    public $cgid;
-	public $cid;
-	public $cldbid;
+    public $cgid; /* groupID */
+	public $cid; /* channelID */
+	public $cldbid; /* clientDBID */
 
     public function __construct($cgid, $cid, $cldbid)
     {

@@ -8,15 +8,17 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class PerMoverViewRequest implements TeamspeakRequestInterface
 {
-    public $cid;
-	public $cldbid;
-	public $permid;
+    public $cid; /* channelID */
+	public $cldbid; /* clientDBID */
+	public $permid; /* permID */
+	public $permsid; /* permName */
 
-    public function __construct($cid, $cldbid, $permid = null)
+    public function __construct($cid, $cldbid, $permid, $permsid)
     {
         $this->cid = $cid;
 		$this->cldbid = $cldbid;
 		$this->permid = $permid;
+		$this->permsid = $permsid;
     }
 
     public function getCommandUrl(): string

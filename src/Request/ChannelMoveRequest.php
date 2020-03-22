@@ -8,13 +8,15 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class ChannelMoveRequest implements TeamspeakRequestInterface
 {
-    public $cid;
-	public $cpid;
+    public $cid; /* channelID */
+	public $cpid; /* channelParentID */
+	public $order; /* channelSortOrder */
 
-    public function __construct($cid, $cpid)
+    public function __construct($cid, $cpid, $order = null)
     {
         $this->cid = $cid;
 		$this->cpid = $cpid;
+		$this->order = $order;
     }
 
     public function getCommandUrl(): string

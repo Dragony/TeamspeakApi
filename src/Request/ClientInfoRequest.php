@@ -8,11 +8,15 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class ClientInfoRequest implements TeamspeakRequestInterface
 {
-    public $clid;
+    public $clid; /* clientID */
+	public $lientinfo;
+	public $clid; /* clientID */
 
-    public function __construct($clid)
+    public function __construct($clid, bool $lientinfo, $clid)
     {
         $this->clid = $clid;
+		$this->lientinfo = $lientinfo;
+		$this->clid = $clid;
     }
 
     public function getCommandUrl(): string

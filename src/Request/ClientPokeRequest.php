@@ -8,8 +8,8 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class ClientPokeRequest implements TeamspeakRequestInterface
 {
-    public $clid;
-	public $msg;
+    public $clid; /* clientID */
+	public $msg; /* text */
 
     public function __construct($clid, $msg)
     {

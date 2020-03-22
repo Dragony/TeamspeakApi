@@ -8,11 +8,11 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class ServerEditRequest implements TeamspeakRequestInterface
 {
-    public $irtualserver_properties...;
+    public $virtualserver_properties;
 
-    public function __construct(bool $irtualserver_properties... = null)
+    public function __construct($virtualserver_properties)
     {
-        $this->irtualserver_properties... = $irtualserver_properties...;
+        $this->virtualserver_properties = $virtualserver_properties;
     }
 
     public function getCommandUrl(): string

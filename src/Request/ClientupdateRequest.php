@@ -8,11 +8,11 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class ClientupdateRequest implements TeamspeakRequestInterface
 {
-    public $lient_properties...;
+    public $client_properties;
 
-    public function __construct(bool $lient_properties... = null)
+    public function __construct($client_properties)
     {
-        $this->lient_properties... = $lient_properties...;
+        $this->client_properties = $client_properties;
     }
 
     public function getCommandUrl(): string

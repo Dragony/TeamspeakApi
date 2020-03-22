@@ -8,10 +8,10 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class ChannelEditRequest implements TeamspeakRequestInterface
 {
-    public $cid;
+    public $cid; /* channelID */
 	public $hannel_properties...;
 
-    public function __construct($cid, bool $hannel_properties... = null)
+    public function __construct($cid, bool $hannel_properties...)
     {
         $this->cid = $cid;
 		$this->hannel_properties... = $hannel_properties...;

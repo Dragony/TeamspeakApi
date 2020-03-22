@@ -8,8 +8,8 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class MessageupdateflagRequest implements TeamspeakRequestInterface
 {
-    public $msgid;
-	public $flag;
+    public $msgid; /* messageID */
+	public $flag; /* 1|0 */
 
     public function __construct($msgid, $flag)
     {

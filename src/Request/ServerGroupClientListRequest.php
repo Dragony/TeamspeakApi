@@ -8,7 +8,7 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class ServerGroupClientListRequest implements TeamspeakRequestInterface
 {
-    public $sgid;
+    public $sgid; /* groupID */
 	public $names;
 
     public function __construct($sgid, bool $names = null)

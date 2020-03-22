@@ -8,9 +8,9 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class BanClientRequest implements TeamspeakRequestInterface
 {
-    public $clid;
-	public $time;
-	public $banreason;
+    public $clid; /* clientID */
+	public $time; /* timeInSeconds */
+	public $banreason; /* text */
 
     public function __construct($clid, $time = null, $banreason = null)
     {

@@ -8,8 +8,8 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class ChannelGroupRenameRequest implements TeamspeakRequestInterface
 {
-    public $cgid;
-	public $name;
+    public $cgid; /* groupID */
+	public $name; /* groupName */
 
     public function __construct($cgid, $name)
     {

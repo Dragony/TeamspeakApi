@@ -8,7 +8,7 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class ClientPermListRequest implements TeamspeakRequestInterface
 {
-    public $cldbid;
+    public $cldbid; /* clientDBID */
 	public $permsid;
 
     public function __construct($cldbid, bool $permsid = null)

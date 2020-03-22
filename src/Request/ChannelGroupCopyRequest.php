@@ -8,13 +8,17 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class ChannelGroupCopyRequest implements TeamspeakRequestInterface
 {
-    public $scgid;
-	public $tcgid;
+    public $scgid; /* sourceGroupID */
+	public $tcgid; /* targetGroupID */
+	public $name; /* groupName */
+	public $type; /* groupDbType */
 
-    public function __construct($scgid, $tcgid)
+    public function __construct($scgid, $tcgid, $name, $type)
     {
         $this->scgid = $scgid;
 		$this->tcgid = $tcgid;
+		$this->name = $name;
+		$this->type = $type;
     }
 
     public function getCommandUrl(): string

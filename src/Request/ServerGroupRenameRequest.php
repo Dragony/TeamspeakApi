@@ -8,8 +8,8 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class ServerGroupRenameRequest implements TeamspeakRequestInterface
 {
-    public $sgid;
-	public $name;
+    public $sgid; /* groupID */
+	public $name; /* groupName */
 
     public function __construct($sgid, $name)
     {

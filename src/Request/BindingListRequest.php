@@ -8,7 +8,7 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class BindingListRequest implements TeamspeakRequestInterface
 {
-    public $subsystem;
+    public $subsystem; /* voice|query|filetransfer */
 
     public function __construct($subsystem = null)
     {

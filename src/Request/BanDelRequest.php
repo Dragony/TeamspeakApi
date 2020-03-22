@@ -8,7 +8,7 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class BanDelRequest implements TeamspeakRequestInterface
 {
-    public $banid;
+    public $banid; /* banID */
 
     public function __construct($banid)
     {

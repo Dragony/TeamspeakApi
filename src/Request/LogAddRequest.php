@@ -8,8 +8,8 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class LogAddRequest implements TeamspeakRequestInterface
 {
-    public $loglevel;
-	public $logmsg;
+    public $loglevel; /* 1-4 */
+	public $logmsg; /* text */
 
     public function __construct($loglevel, $logmsg)
     {

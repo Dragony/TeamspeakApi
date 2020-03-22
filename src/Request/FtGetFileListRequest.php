@@ -8,9 +8,9 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class FtGetFileListRequest implements TeamspeakRequestInterface
 {
-    public $cid;
-	public $cpw;
-	public $path;
+    public $cid; /* channelID */
+	public $cpw; /* channelPassword */
+	public $path; /* filePath */
 
     public function __construct($cid, $cpw, $path)
     {

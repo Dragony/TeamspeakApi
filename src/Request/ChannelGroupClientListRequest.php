@@ -8,13 +8,15 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class ChannelGroupClientListRequest implements TeamspeakRequestInterface
 {
-    public $cid;
-	public $cldbid;
+    public $cid; /* channelID */
+	public $cldbid; /* clientDBID */
+	public $cgid; /* groupID */
 
-    public function __construct($cid = null, $cldbid = null)
+    public function __construct($cid = null, $cldbid = null, $cgid = null)
     {
         $this->cid = $cid;
 		$this->cldbid = $cldbid;
+		$this->cgid = $cgid;
     }
 
     public function getCommandUrl(): string

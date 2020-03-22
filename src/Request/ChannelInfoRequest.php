@@ -8,7 +8,7 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class ChannelInfoRequest implements TeamspeakRequestInterface
 {
-    public $cid;
+    public $cid; /* channelID */
 
     public function __construct($cid)
     {

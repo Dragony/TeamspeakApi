@@ -8,7 +8,7 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class ServerDeleteRequest implements TeamspeakRequestInterface
 {
-    public $sid;
+    public $sid; /* serverID */
 
     public function __construct($sid)
     {

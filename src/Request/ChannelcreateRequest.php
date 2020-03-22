@@ -8,10 +8,10 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class ChannelcreateRequest implements TeamspeakRequestInterface
 {
-    public $channel_name;
+    public $channel_name; /* channelName */
 	public $hannel_properties...;
 
-    public function __construct($channel_name, bool $hannel_properties... = null)
+    public function __construct($channel_name, bool $channel_properties)
     {
         $this->channel_name = $channel_name;
 		$this->hannel_properties... = $hannel_properties...;

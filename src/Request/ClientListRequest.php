@@ -15,8 +15,10 @@ class ClientListRequest implements TeamspeakRequestInterface
 	public $groups;
 	public $info;
 	public $country;
+	public $ip;
+	public $badges;
 
-    public function __construct(bool $uid = null, bool $away = null, bool $voice = null, bool $times = null, bool $groups = null, bool $info = null, bool $country = null)
+    public function __construct(bool $uid = null, bool $away = null, bool $voice = null, bool $times = null, bool $groups = null, bool $info = null, bool $country = null, bool $ip = null, bool $badges = null)
     {
         $this->uid = $uid;
 		$this->away = $away;
@@ -25,6 +27,8 @@ class ClientListRequest implements TeamspeakRequestInterface
 		$this->groups = $groups;
 		$this->info = $info;
 		$this->country = $country;
+		$this->ip = $ip;
+		$this->badges = $badges;
     }
 
     public function getCommandUrl(): string

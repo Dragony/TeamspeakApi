@@ -8,7 +8,7 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class ChannelFindRequest implements TeamspeakRequestInterface
 {
-    public $pattern;
+    public $pattern; /* channelName */
 
     public function __construct($pattern)
     {

@@ -8,7 +8,7 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class ClientFindRequest implements TeamspeakRequestInterface
 {
-    public $pattern;
+    public $pattern; /* clientName */
 
     public function __construct($pattern)
     {

@@ -8,13 +8,21 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class FtRenameFileRequest implements TeamspeakRequestInterface
 {
-    public $cid;
-	public $cpw;
+    public $cid; /* channelID */
+	public $cpw; /* channelPassword */
+	public $tcid; /* targetChannelID */
+	public $tcpw; /* targetChannelPassword */
+	public $oldname; /* oldFilePath */
+	public $newname; /* newFilePath */
 
-    public function __construct($cid, $cpw)
+    public function __construct($cid, $cpw, $tcid = null, $tcpw = null, $oldname, $newname)
     {
         $this->cid = $cid;
 		$this->cpw = $cpw;
+		$this->tcid = $tcid;
+		$this->tcpw = $tcpw;
+		$this->oldname = $oldname;
+		$this->newname = $newname;
     }
 
     public function getCommandUrl(): string

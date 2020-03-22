@@ -8,10 +8,10 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class ClientdbEditRequest implements TeamspeakRequestInterface
 {
-    public $cldbid;
+    public $cldbid; /* clientDBID */
 	public $lient_properties...;
 
-    public function __construct($cldbid, bool $lient_properties... = null)
+    public function __construct($cldbid, bool $lient_properties...)
     {
         $this->cldbid = $cldbid;
 		$this->lient_properties... = $lient_properties...;

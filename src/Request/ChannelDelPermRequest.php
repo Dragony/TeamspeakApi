@@ -9,10 +9,10 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 class ChannelDelPermRequest implements TeamspeakRequestInterface
 {
     public $cid;
-	public $permid;
-	public $permsid;
+	public $permid; /* permID */
+	public $permsid; /* permName */
 
-    public function __construct($cid, $permid = null, $permsid = null)
+    public function __construct($cid, $permid, $permsid)
     {
         $this->cid = $cid;
 		$this->permid = $permid;

@@ -8,8 +8,8 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class CustomsearchRequest implements TeamspeakRequestInterface
 {
-    public $ident;
-	public $pattern;
+    public $ident; /* ident */
+	public $pattern; /* pattern */
 
     public function __construct($ident, $pattern)
     {

@@ -8,9 +8,9 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class QueryLoginListRequest implements TeamspeakRequestInterface
 {
-    public $pattern;
-	public $start;
-	public $duration;
+    public $pattern; /* clientLoginName */
+	public $start; /* offset */
+	public $duration; /* limit */
 	public $count;
 
     public function __construct($pattern = null, $start = null, $duration = null, bool $count = null)

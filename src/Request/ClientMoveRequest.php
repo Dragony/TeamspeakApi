@@ -8,9 +8,9 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class ClientMoveRequest implements TeamspeakRequestInterface
 {
-    public $clid;
-	public $cid;
-	public $cpw;
+    public $clid; /* clientID */
+	public $cid; /* channelID */
+	public $cpw; /* channelPassword */
 
     public function __construct($clid, $cid, $cpw = null)
     {

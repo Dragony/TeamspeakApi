@@ -8,13 +8,13 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class ClientEditRequest implements TeamspeakRequestInterface
 {
-    public $clid;
-	public $lient_properties...;
+    public $clid; /* clientID */
+	public $client_properties;
 
-    public function __construct($clid, bool $lient_properties... = null)
+    public function __construct($clid, $client_properties)
     {
         $this->clid = $clid;
-		$this->lient_properties... = $lient_properties...;
+		$this->client_properties = $client_properties;
     }
 
     public function getCommandUrl(): string

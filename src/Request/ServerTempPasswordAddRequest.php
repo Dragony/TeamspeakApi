@@ -8,13 +8,19 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class ServerTempPasswordAddRequest implements TeamspeakRequestInterface
 {
-    public $pw;
-	public $desc;
+    public $pw; /* password */
+	public $desc; /* description */
+	public $duration; /* seconds */
+	public $tcid; /* channelID */
+	public $tcpw; /* channelPW */
 
-    public function __construct($pw, $desc)
+    public function __construct($pw, $desc, $duration, $tcid, $tcpw)
     {
         $this->pw = $pw;
 		$this->desc = $desc;
+		$this->duration = $duration;
+		$this->tcid = $tcid;
+		$this->tcpw = $tcpw;
     }
 
     public function getCommandUrl(): string

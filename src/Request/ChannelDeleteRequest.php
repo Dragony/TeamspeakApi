@@ -8,8 +8,8 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class ChannelDeleteRequest implements TeamspeakRequestInterface
 {
-    public $cid;
-	public $force;
+    public $cid; /* channelID */
+	public $force; /* 1|0 */
 
     public function __construct($cid, $force)
     {

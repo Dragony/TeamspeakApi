@@ -8,9 +8,9 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class SendTextMessageRequest implements TeamspeakRequestInterface
 {
-    public $targetmode;
-	public $target;
-	public $msg;
+    public $targetmode; /* 1-3 */
+	public $target; /* clientID */
+	public $msg; /* text */
 
     public function __construct($targetmode, $target, $msg)
     {

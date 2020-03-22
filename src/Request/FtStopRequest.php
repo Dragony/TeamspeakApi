@@ -8,8 +8,8 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class FtStopRequest implements TeamspeakRequestInterface
 {
-    public $serverftfid;
-	public $delete;
+    public $serverftfid; /* serverFileTransferID */
+	public $delete; /* 1|0 */
 
     public function __construct($serverftfid, $delete)
     {

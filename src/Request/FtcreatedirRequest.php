@@ -8,9 +8,9 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class FtcreatedirRequest implements TeamspeakRequestInterface
 {
-    public $cid;
-	public $cpw;
-	public $dirname;
+    public $cid; /* channelID */
+	public $cpw; /* channelPassword */
+	public $dirname; /* dirPath */
 
     public function __construct($cid, $cpw, $dirname)
     {

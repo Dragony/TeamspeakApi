@@ -8,8 +8,8 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class BanListRequest implements TeamspeakRequestInterface
 {
-    public $start;
-	public $duration;
+    public $start; /* offset */
+	public $duration; /* limit */
 	public $count;
 
     public function __construct($start = null, $duration = null, bool $count = null)

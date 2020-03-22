@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace {namespace};
 
-use Dragony\TeamspeakApi\Response\SuccessResponse;
+use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class {classname} implements TeamspeakRequestInterface
 {
@@ -22,6 +22,6 @@ class {classname} implements TeamspeakRequestInterface
 
     public function getResponseClass(): string
     {
-        return SuccessResponse::class;
+        return GenericResponse::class;
     }
 }

@@ -8,9 +8,9 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class ApiKeyAddRequest implements TeamspeakRequestInterface
 {
-    public $scope;
-	public $lifetime;
-	public $cldbid;
+    public $scope; /* manage|write|read */
+	public $lifetime; /* days */
+	public $cldbid; /* clientDBID */
 
     public function __construct($scope, $lifetime = null, $cldbid = null)
     {

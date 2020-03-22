@@ -8,8 +8,8 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class ServerGroupAddRequest implements TeamspeakRequestInterface
 {
-    public $name;
-	public $type;
+    public $name; /* groupName */
+	public $type; /* groupDbType */
 
     public function __construct($name, $type = null)
     {

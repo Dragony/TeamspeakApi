@@ -8,10 +8,10 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class LogViewRequest implements TeamspeakRequestInterface
 {
-    public $lines;
-	public $reverse;
-	public $instance;
-	public $begin_pos;
+    public $lines; /* 1-100 */
+	public $reverse; /* 1|0 */
+	public $instance; /* 1|0 */
+	public $begin_pos; /* n */
 
     public function __construct($lines = null, $reverse = null, $instance = null, $begin_pos = null)
     {

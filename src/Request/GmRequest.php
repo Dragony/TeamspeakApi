@@ -8,7 +8,7 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class GmRequest implements TeamspeakRequestInterface
 {
-    public $msg;
+    public $msg; /* text */
 
     public function __construct($msg)
     {

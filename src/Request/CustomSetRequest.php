@@ -8,9 +8,9 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class CustomSetRequest implements TeamspeakRequestInterface
 {
-    public $cldbid;
-	public $ident;
-	public $value;
+    public $cldbid; /* clientDBID */
+	public $ident; /* ident */
+	public $value; /* value */
 
     public function __construct($cldbid, $ident, $value)
     {

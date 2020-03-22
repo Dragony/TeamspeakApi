@@ -8,8 +8,8 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class ServerStopRequest implements TeamspeakRequestInterface
 {
-    public $sid;
-	public $reasonmsg;
+    public $sid; /* serverID */
+	public $reasonmsg; /* text */
 
     public function __construct($sid, $reasonmsg = null)
     {

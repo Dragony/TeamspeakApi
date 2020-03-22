@@ -8,7 +8,7 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class ServerTempPasswordDelRequest implements TeamspeakRequestInterface
 {
-    public $pw;
+    public $pw; /* password */
 
     public function __construct($pw)
     {

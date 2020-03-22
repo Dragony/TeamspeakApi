@@ -8,7 +8,7 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class MessageDelRequest implements TeamspeakRequestInterface
 {
-    public $msgid;
+    public $msgid; /* messageID */
 
     public function __construct($msgid)
     {

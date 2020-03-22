@@ -8,7 +8,7 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class ChannelPermListRequest implements TeamspeakRequestInterface
 {
-    public $cid;
+    public $cid; /* channelID */
 	public $permsid;
 
     public function __construct($cid, bool $permsid = null)

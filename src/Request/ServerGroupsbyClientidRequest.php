@@ -8,7 +8,7 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class ServerGroupsbyClientidRequest implements TeamspeakRequestInterface
 {
-    public $cldbid;
+    public $cldbid; /* clientDBID */
 
     public function __construct($cldbid)
     {

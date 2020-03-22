@@ -8,7 +8,7 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class MessageGetRequest implements TeamspeakRequestInterface
 {
-    public $msgid;
+    public $msgid; /* messageID */
 
     public function __construct($msgid)
     {

@@ -8,7 +8,7 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class PermidGetbynameRequest implements TeamspeakRequestInterface
 {
-    public $permsid;
+    public $permsid; /* permName */
 
     public function __construct($permsid)
     {

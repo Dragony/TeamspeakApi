@@ -8,9 +8,9 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class ClientKickRequest implements TeamspeakRequestInterface
 {
-    public $clid;
-	public $reasonid;
-	public $reasonmsg;
+    public $clid; /* clientID */
+	public $reasonid; /* 4|5 */
+	public $reasonmsg; /* text */
 
     public function __construct($clid, $reasonid, $reasonmsg = null)
     {

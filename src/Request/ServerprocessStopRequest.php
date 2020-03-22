@@ -8,7 +8,7 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class ServerprocessStopRequest implements TeamspeakRequestInterface
 {
-    public $reasonmsg;
+    public $reasonmsg; /* text */
 
     public function __construct($reasonmsg = null)
     {

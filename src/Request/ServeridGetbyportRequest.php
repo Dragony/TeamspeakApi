@@ -8,7 +8,7 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class ServeridGetbyportRequest implements TeamspeakRequestInterface
 {
-    public $virtualserver_port;
+    public $virtualserver_port; /* serverPort */
 
     public function __construct($virtualserver_port)
     {

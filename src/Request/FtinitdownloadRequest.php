@@ -8,13 +8,21 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class FtinitdownloadRequest implements TeamspeakRequestInterface
 {
-    public $clientftfid;
-	public $name;
+    public $clientftfid; /* clientFileTransferID */
+	public $name; /* filePath */
+	public $cid; /* channelID */
+	public $cpw; /* channelPassword */
+	public $seekpos; /* seekPosition */
+	public $proto;
 
-    public function __construct($clientftfid, $name)
+    public function __construct($clientftfid, $name, $cid, $cpw, $seekpos, $proto = null)
     {
         $this->clientftfid = $clientftfid;
 		$this->name = $name;
+		$this->cid = $cid;
+		$this->cpw = $cpw;
+		$this->seekpos = $seekpos;
+		$this->proto = $proto;
     }
 
     public function getCommandUrl(): string

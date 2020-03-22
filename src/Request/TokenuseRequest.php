@@ -8,7 +8,7 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class TokenuseRequest implements TeamspeakRequestInterface
 {
-    public $token;
+    public $token; /* tokenKey */
 
     public function __construct($token)
     {

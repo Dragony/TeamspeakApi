@@ -8,11 +8,15 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class PermGetRequest implements TeamspeakRequestInterface
 {
-    public $permid;
+    public $permid; /* permID */
+	public $ermget;
+	public $permsid; /* permName */
 
-    public function __construct($permid)
+    public function __construct($permid, bool $ermget, $permsid)
     {
         $this->permid = $permid;
+		$this->ermget = $ermget;
+		$this->permsid = $permsid;
     }
 
     public function getCommandUrl(): string

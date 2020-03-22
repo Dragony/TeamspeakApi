@@ -9,10 +9,12 @@ foreach($data['commands'] as $command){
         array_map('ucfirst', $data['keywords']),
         $command
     )).'Request';
-    $help = shell_exec("echo \"help {$command}\" | nc 172.25.16.1 10011 -q1");
-    preg_match('|Usage: [a-z]+ (.*)|', $help, $matches);
+    $help = shell_exec("echo \"help {$command}\" | nc 192.168.144.1 10011 -q1");
+    preg_match('|Usage: [a-z]+ (.*)Permissions:|s', $help, $matches);
 
     if(isset($matches[1])){
+        // Fix multiline parameter lists
+        $matches[1] = preg_replace('|[ ]{2,10}|', ' ', str_replace(["\r", "\n"], '', trim($matches[1])));
         $rawParameters = explode(" ", $matches[1]);
         $parameters = parseParameters($rawParameters);
     }else{
@@ -27,7 +29,8 @@ foreach($data['commands'] as $command){
 
     $defineParams = [];
     foreach($parameters as $parameter){
-        $defineParams[] = "public \${$parameter['phpName']};";
+        $descr = empty($parameter['description']) ? '' : " /* {$parameter['description']} */";
+        $defineParams[] = "public \${$parameter['phpName']};{$descr}";
     }
 
     $initParams = [];
@@ -45,6 +48,7 @@ foreach($data['commands'] as $command){
     ];
 
     file_put_contents(__DIR__ . '/../src/Request/' . $className . '.php', str_replace(array_keys($replace), array_values($replace), $template));
+    echo "Wrote {$className}\n";
 }
 
 function parseParameters($rawParameters){
@@ -52,10 +56,16 @@ function parseParameters($rawParameters){
     foreach($rawParameters as $parameter){
         $paramConfig = [];
         if(substr($parameter, 0, 1) === '['){
-            $paramConfig['isOptional'] = true;
+            if(strpos($parameter, '...') !== false){
+                $paramConfig['isArray'] = true;
+                $paramConfig['isOptional'] = false;
+            }else{
+                $paramConfig['isOptional'] = true;
+            }
             $parameter = substr($parameter, 1, -1);
         }else{
             $paramConfig['isOptional'] = false;
+            $paramConfig['isArray'] = false;
         }
         $paramConfig['name'] = $parameter;
         $paramConfig['isFlag'] = strpos($parameter, '=') === false;
@@ -64,6 +74,8 @@ function parseParameters($rawParameters){
         }else{
             $paramConfig['phpName'] = explode("=", $parameter)[0];
         }
+        preg_match('|\{(.*?)\}|', $parameter, $matches);
+        $paramConfig['description'] = $matches[1] ?? '';
         $parameters[] = $paramConfig;
     }
     return $parameters;

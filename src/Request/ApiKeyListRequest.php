@@ -8,9 +8,9 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class ApiKeyListRequest implements TeamspeakRequestInterface
 {
-    public $cldbid;
-	public $start;
-	public $duration;
+    public $cldbid; /* clientDBID|* */
+	public $start; /* offset */
+	public $duration; /* limit */
 	public $count;
 
     public function __construct($cldbid = null, $start = null, $duration = null, bool $count = null)

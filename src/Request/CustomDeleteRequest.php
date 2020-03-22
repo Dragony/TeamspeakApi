@@ -8,8 +8,8 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class CustomDeleteRequest implements TeamspeakRequestInterface
 {
-    public $cldbid;
-	public $ident;
+    public $cldbid; /* clientDBID */
+	public $ident; /* ident */
 
     public function __construct($cldbid, $ident)
     {

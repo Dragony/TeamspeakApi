@@ -8,7 +8,7 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class ApiKeyDelRequest implements TeamspeakRequestInterface
 {
-    public $id;
+    public $id; /* ID */
 
     public function __construct($id)
     {

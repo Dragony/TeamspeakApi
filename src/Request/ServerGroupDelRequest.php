@@ -8,8 +8,8 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class ServerGroupDelRequest implements TeamspeakRequestInterface
 {
-    public $sgid;
-	public $force;
+    public $sgid; /* groupID */
+	public $force; /* 1|0 */
 
     public function __construct($sgid, $force)
     {

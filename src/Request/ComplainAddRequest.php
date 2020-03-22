@@ -8,8 +8,8 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class ComplainAddRequest implements TeamspeakRequestInterface
 {
-    public $tcldbid;
-	public $message;
+    public $tcldbid; /* targetClientDBID */
+	public $message; /* text */
 
     public function __construct($tcldbid, $message)
     {
