@@ -1,6 +1,6 @@
 <?php
 
-namespace Dragony\TeamspeakApi\Channel;
+namespace Dragony\TeamspeakApi\Teamspeak;
 
 use JMS\Serializer\Annotation as JMS;
 

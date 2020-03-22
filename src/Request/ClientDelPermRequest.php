@@ -12,7 +12,7 @@ class ClientDelPermRequest implements TeamspeakRequestInterface
 	public $permid; /* permID */
 	public $permsid; /* permName */
 
-    public function __construct($cldbid, $permid, $permsid)
+    public function __construct($cldbid, $permid = null, $permsid = null)
     {
         $this->cldbid = $cldbid;
 		$this->permid = $permid;

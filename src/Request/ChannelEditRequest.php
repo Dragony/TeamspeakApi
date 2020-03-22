@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Dragony\TeamspeakApi\Request;
 
-use Dragony\TeamspeakApi\Channel\Channel;
+use Dragony\TeamspeakApi\Teamspeak\Channel;
 use Dragony\TeamspeakApi\Response\GenericResponse;
 
 class ChannelEditRequest implements TeamspeakRequestInterface

@@ -5,14 +5,18 @@ declare(strict_types=1);
 namespace Dragony\TeamspeakApi\Request;
 
 use Dragony\TeamspeakApi\Response\GenericResponse;
+use Dragony\TeamspeakApi\Teamspeak\UpdateClient;
 
-class ClientupdateRequest implements TeamspeakRequestInterface
+class ClientUpdateRequest implements TeamspeakRequestInterface
 {
-    public $client_properties;
+    /**
+     * @var UpdateClient
+     */
+    public $updateClient;
 
-    public function __construct($client_properties)
+    public function __construct(UpdateClient $updateClient)
     {
-        $this->client_properties = $client_properties;
+        $this->updateClient = $updateClient;
     }
 
     public function getCommandUrl(): string

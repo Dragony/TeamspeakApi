@@ -12,7 +12,7 @@ class ClientKickRequest implements TeamspeakRequestInterface
 	public $reasonid; /* 4|5 */
 	public $reasonmsg; /* text */
 
-    public function __construct($clid, $reasonid, $reasonmsg = null)
+    public function __construct($clid, $reasonid = 4, $reasonmsg = null)
     {
         $this->clid = $clid;
 		$this->reasonid = $reasonid;

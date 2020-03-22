@@ -6,6 +6,7 @@ namespace Request;
 
 use Dragony\TeamspeakApi\Request\ClientGetUidfromclidRequest;
 use Helper\AdapterFactory;
+use Helper\ExistingItems;
 use Helper\ResponseReader;
 use PHPUnit\Framework\TestCase;
 
@@ -14,8 +15,10 @@ class ClientGetUidfromclidRequestTest extends TestCase
     public function testRequest()
     {
         $adapter = AdapterFactory::create();
+        $adapter->setServerId(1);
 
-        $request = new ClientGetUidfromclidRequest();
+        $client = ExistingItems::getExistingClient();
+        $request = new ClientGetUidfromclidRequest($client['clid']);
 
         $response = $adapter->request($request);
 

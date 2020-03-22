@@ -2,7 +2,8 @@
 
 namespace Helper;
 
-use Dragony\TeamspeakApi\Channel\Channel;
+use Dragony\TeamspeakApi\Request\ComplainAddRequest;
+use Dragony\TeamspeakApi\Teamspeak\Channel;
 use Dragony\TeamspeakApi\Request\ChannelAddPermRequest;
 use Dragony\TeamspeakApi\Request\ChannelCreateRequest;
 use Dragony\TeamspeakApi\Request\ChannelFindRequest;
@@ -15,9 +16,10 @@ class TeamspeakArtifactFactory
     {
         $adapter = AdapterFactory::create();
         $adapter->setServerId($serverId);
+        $channelName = $channelName ?? uniqid();
 
         $newChannel = new Channel();
-        $newChannel->channel_name = $channelName ?? 'testchannel';
+        $newChannel->channel_name = $channelName;
         $newChannel->channel_flag_permanent = true;
 
         $createChannel = new ChannelCreateRequest($newChannel);
@@ -25,7 +27,7 @@ class TeamspeakArtifactFactory
         $response = $adapter->request($createChannel);
         Assert::isInstanceOf($response, $createChannel->getResponseClass(), ResponseReader::getMessage($response, $createChannel, $adapter));
 
-        $request = new ChannelFindRequest($channelName ?? 'testchannel');
+        $request = new ChannelFindRequest($channelName);
         $response = $adapter->request($request);
 
         Assert::isInstanceOf($response, $request->getResponseClass(), ResponseReader::getMessage($response));
@@ -52,5 +54,18 @@ class TeamspeakArtifactFactory
         $name = $groupname ?? 'testgroup ' . uniqid();
         AdapterFactory::create()->setServerId(1)->request(new ChannelGroupAddRequest($name));
         return ExistingItems::getChannelGroupByName($name);
+    }
+
+    public static function addComplaint()
+    {
+        $adapter = AdapterFactory::create();
+        $adapter->setServerId(1);
+
+        $client = ExistingItems::getExistingClient(ExistingItems::CLIENT_TYPE_VOICE);
+        $request = new ComplainAddRequest($client['client_database_id'], 'test complaint');
+
+        $response = $adapter->request($request);
+
+        return $client['client_database_id'];
     }
 }

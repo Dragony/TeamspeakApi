@@ -10,16 +10,10 @@ class ClientdbFindRequest implements TeamspeakRequestInterface
 {
     public $uid;
 	public $pattern; /* clientName|clientUID */
-	public $lientdbfind;
-	public $uid;
-	public $pattern; /* clientName|clientUID */
 
-    public function __construct(bool $uid = null, $pattern, bool $lientdbfind, bool $uid = null, $pattern)
+    public function __construct($pattern, bool $uid = null)
     {
         $this->uid = $uid;
-		$this->pattern = $pattern;
-		$this->lientdbfind = $lientdbfind;
-		$this->uid = $uid;
 		$this->pattern = $pattern;
     }
 

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Request;
 
-use Dragony\TeamspeakApi\Channel\Channel;
+use Dragony\TeamspeakApi\Teamspeak\Channel;
 use Dragony\TeamspeakApi\Request\ChannelCreateRequest;
 use Helper\AdapterFactory;
 use Helper\ResponseReader;

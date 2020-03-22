@@ -9,12 +9,12 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 class ClientdbEditRequest implements TeamspeakRequestInterface
 {
     public $cldbid; /* clientDBID */
-	public $lient_properties...;
+    public $client_description;
 
-    public function __construct($cldbid, bool $lient_properties...)
+    public function __construct($cldbid, $client_description)
     {
         $this->cldbid = $cldbid;
-		$this->lient_properties... = $lient_properties...;
+        $this->client_description = $client_description;
     }
 
     public function getCommandUrl(): string

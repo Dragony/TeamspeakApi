@@ -15,7 +15,7 @@ class ClientAddPermRequest implements TeamspeakRequestInterface
 	public $permvalue; /* permValue */
 	public $permskip; /* 1|0 */
 
-    public function __construct(bool $continueonerror = null, $cldbid, $permid, $permsid, $permvalue, $permskip)
+    public function __construct($cldbid, $permvalue, $permid = null, $permsid = null, $permskip = 0, bool $continueonerror = null)
     {
         $this->continueonerror = $continueonerror;
 		$this->cldbid = $cldbid;

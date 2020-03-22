@@ -6,7 +6,7 @@ namespace Dragony\TeamspeakApi\Request;
 
 use Dragony\TeamspeakApi\Response\GenericResponse;
 
-class ComplainDelallRequest implements TeamspeakRequestInterface
+class ComplainDelAllRequest implements TeamspeakRequestInterface
 {
     public $tcldbid; /* targetClientDBID */
 

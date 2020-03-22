@@ -15,7 +15,7 @@ class ClientSetServerQueryLoginRequestTest extends TestCase
     {
         $adapter = AdapterFactory::create();
 
-        $request = new ClientSetServerQueryLoginRequest();
+        $request = new ClientSetServerQueryLoginRequest('serveradmin');
 
         $response = $adapter->request($request);
 

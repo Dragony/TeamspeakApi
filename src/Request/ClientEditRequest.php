@@ -5,16 +5,18 @@ declare(strict_types=1);
 namespace Dragony\TeamspeakApi\Request;
 
 use Dragony\TeamspeakApi\Response\GenericResponse;
+use Dragony\TeamspeakApi\Teamspeak\EditClient;
 
 class ClientEditRequest implements TeamspeakRequestInterface
 {
-    public $clid; /* clientID */
-	public $client_properties;
+    /**
+     * @var EditClient
+     */
+    public $editClient;
 
-    public function __construct($clid, $client_properties)
+    public function __construct(EditClient $editClient)
     {
-        $this->clid = $clid;
-		$this->client_properties = $client_properties;
+        $this->editClient = $editClient;
     }
 
     public function getCommandUrl(): string

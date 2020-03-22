@@ -6,6 +6,7 @@ namespace Request;
 
 use Dragony\TeamspeakApi\Request\ClientGetnamefromDbidRequest;
 use Helper\AdapterFactory;
+use Helper\ExistingItems;
 use Helper\ResponseReader;
 use PHPUnit\Framework\TestCase;
 
@@ -14,8 +15,10 @@ class ClientGetnamefromDbidRequestTest extends TestCase
     public function testRequest()
     {
         $adapter = AdapterFactory::create();
+        $adapter->setServerId(1);
 
-        $request = new ClientGetnamefromDbidRequest();
+        $client = ExistingItems::getExistingClient(ExistingItems::CLIENT_TYPE_VOICE);
+        $request = new ClientGetnamefromDbidRequest($client['client_database_id']);
 
         $response = $adapter->request($request);
 

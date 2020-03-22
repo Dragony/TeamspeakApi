@@ -2,7 +2,6 @@
 
 namespace Helper;
 
-use Dragony\TeamspeakApi\Channel\Channel;
 use Dragony\TeamspeakApi\Request\ApiKeyListRequest;
 use Dragony\TeamspeakApi\Request\BanListRequest;
 use Dragony\TeamspeakApi\Request\ChannelFindRequest;
@@ -11,9 +10,11 @@ use Dragony\TeamspeakApi\Request\ChannelGroupPermListRequest;
 use Dragony\TeamspeakApi\Request\ChannelListRequest;
 use Dragony\TeamspeakApi\Request\ChannelPermListRequest;
 use Dragony\TeamspeakApi\Request\ClientListRequest;
+use Dragony\TeamspeakApi\Request\ComplainListRequest;
 use Dragony\TeamspeakApi\Request\PermissionListRequest;
 use Dragony\TeamspeakApi\Request\TeamspeakRequestInterface;
 use Dragony\TeamspeakApi\Response\ErrorResponse;
+use Dragony\TeamspeakApi\Teamspeak\Channel;
 use Webmozart\Assert\Assert;
 
 class ExistingItems
@@ -74,7 +75,7 @@ class ExistingItems
 
     public static function getExistingClient($clientType = self::CLIENT_TYPE_QUERY)
     {
-        $request = new ClientListRequest();
+        $request = new ClientListRequest(true);
 
         $clients = self::makeRequest($request, 1)->body;
         Assert::greaterThanEq(count($clients), 1);
@@ -105,6 +106,11 @@ class ExistingItems
     public static function getExistingPerm()
     {
         return self::makeRequest(new PermissionListRequest())->body[0];
+    }
+
+    public static function getAllComplaints()
+    {
+        return self::makeRequest(new ComplainListRequest(), 1)->body;
     }
 
     protected static function makeRequest(TeamspeakRequestInterface $request, $serverId = null)
