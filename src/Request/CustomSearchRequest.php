@@ -6,7 +6,7 @@ namespace Dragony\TeamspeakApi\Request;
 
 use Dragony\TeamspeakApi\Response\GenericResponse;
 
-class CustomsearchRequest implements TeamspeakRequestInterface
+class CustomSearchRequest implements TeamspeakRequestInterface
 {
     public $ident; /* ident */
 	public $pattern; /* pattern */
