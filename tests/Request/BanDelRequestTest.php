@@ -6,6 +6,7 @@ namespace Request;
 
 use Dragony\TeamspeakApi\Request\BanDelRequest;
 use Helper\AdapterFactory;
+use Helper\ExistingItems;
 use Helper\ResponseReader;
 use PHPUnit\Framework\TestCase;
 
@@ -15,7 +16,8 @@ class BanDelRequestTest extends TestCase
     {
         $adapter = AdapterFactory::create();
 
-        $request = new BanDelRequest();
+        $request = new BanDelRequest(ExistingItems::getExistingBan());
+        $adapter->setServerId(1);
 
         $response = $adapter->request($request);
 

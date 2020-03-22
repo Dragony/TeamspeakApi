@@ -10,11 +10,13 @@ class ChannelClientDelPermRequest implements TeamspeakRequestInterface
 {
     public $cid;
 	public $cldbid;
+    public $permid;
 
-    public function __construct($cid, $cldbid)
+    public function __construct($cid, $cldbid, $permid)
     {
         $this->cid = $cid;
 		$this->cldbid = $cldbid;
+        $this->permid = $permid;
     }
 
     public function getCommandUrl(): string

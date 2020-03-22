@@ -11,12 +11,14 @@ class ChannelAddPermRequest implements TeamspeakRequestInterface
     public $continueonerror;
 	public $cid;
 	public $permid;
+    public $permvalue;
 
-    public function __construct(bool $continueonerror = null, $cid, $permid = null)
+    public function __construct($cid, $permid, $permvalue, bool $continueonerror = null)
     {
         $this->continueonerror = $continueonerror;
 		$this->cid = $cid;
 		$this->permid = $permid;
+        $this->permvalue = $permvalue;
     }
 
     public function getCommandUrl(): string
