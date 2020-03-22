@@ -35,4 +35,39 @@ class Channel
      * @JMS\Type(name="string")
      */
     public $channel_topic;
+
+    /**
+     * @JMS\Type(name="boolean")
+     */
+    public $channel_flag_permanent;
+
+    /**
+     * @JMS\Type(name="boolean")
+     */
+    public $channel_flag_default;
+    /**
+     * @JMS\Type(name="boolean")
+     */
+
+    public $channel_flag_password;
+
+    /**
+     * @JMS\Type(name="boolean")
+     */
+    public $channel_flag_semi_permanent;
+
+    /**
+     * @JMS\Type(name="string")
+     */
+    public $channel_maxclients;
+
+    /**
+     * @JMS\Type(name="string")
+     */
+    public $channel_maxfamilyclients;
+
+    /**
+     * @JMS\Type(name="integer")
+     */
+    public $channel_order;
 }

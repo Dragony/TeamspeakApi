@@ -7,6 +7,7 @@ use Dragony\TeamspeakApi\Request\ApiKeyListRequest;
 use Dragony\TeamspeakApi\Request\BanListRequest;
 use Dragony\TeamspeakApi\Request\ChannelFindRequest;
 use Dragony\TeamspeakApi\Request\ChannelGroupListRequest;
+use Dragony\TeamspeakApi\Request\ChannelGroupPermListRequest;
 use Dragony\TeamspeakApi\Request\ChannelListRequest;
 use Dragony\TeamspeakApi\Request\ChannelPermListRequest;
 use Dragony\TeamspeakApi\Request\ClientListRequest;
@@ -62,6 +63,15 @@ class ExistingItems
         return $channelPerm[0];
     }
 
+    public static function getGroupPerm($group)
+    {
+        $request = new ChannelGroupPermListRequest($group['cgid']);
+
+        $channelPerm = self::makeRequest($request, 1)->body;
+        Assert::greaterThanEq(count($channelPerm), 1);
+        return $channelPerm[0];
+    }
+
     public static function getExistingClient($clientType = self::CLIENT_TYPE_QUERY)
     {
         $request = new ClientListRequest();
@@ -76,9 +86,20 @@ class ExistingItems
         throw new \Exception('no clients connected');
     }
 
-    public static function getExistingChannelGroupList()
+    public static function getExistingChannelGroup()
     {
         return self::makeRequest(new ChannelGroupListRequest(), 1)->body[0];
+    }
+
+    public static function getChannelGroupByName($name, $serverId = 1)
+    {
+        $groups = self::makeRequest(new ChannelGroupListRequest(), $serverId)->body;
+        foreach($groups as $group){
+            if($group['name'] == $name){
+                return $group;
+            }
+        }
+        throw new \Exception('channel group not found: ' .$name);
     }
 
     public static function getExistingPerm()

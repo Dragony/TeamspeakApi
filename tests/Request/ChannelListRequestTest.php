@@ -14,6 +14,7 @@ class ChannelListRequestTest extends TestCase
     public function testRequest()
     {
         $adapter = AdapterFactory::create();
+        $adapter->setServerId(1);
 
         $request = new ChannelListRequest();
 

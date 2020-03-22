@@ -13,7 +13,7 @@ class ChannelGroupDelPermRequest implements TeamspeakRequestInterface
 	public $permid; /* permID */
 	public $permsid; /* permName */
 
-    public function __construct(bool $continueonerror = null, $cgid, $permid, $permsid)
+    public function __construct($cgid, $permid = null, $permsid = null, bool $continueonerror = null)
     {
         $this->continueonerror = $continueonerror;
 		$this->cgid = $cgid;

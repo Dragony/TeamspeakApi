@@ -11,7 +11,7 @@ class ChannelGroupDelRequest implements TeamspeakRequestInterface
     public $cgid; /* groupID */
 	public $force; /* 1|0 */
 
-    public function __construct($cgid, $force)
+    public function __construct($cgid, $force = 1)
     {
         $this->cgid = $cgid;
 		$this->force = $force;

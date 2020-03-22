@@ -76,22 +76,30 @@ class TeamspeakAdapter
     /**
      * @param mixed $serverId
      */
-    public function setServerId($serverId): void
+    public function setServerId($serverId): self
     {
         $this->serverId = $serverId;
+
+        return $this;
     }
 
-    protected function generateGetParameters($request)
+    protected function generateGetParameters($request, $prefixBooleans = true)
     {
         $variables = get_object_vars($request);
         $convertedVariables = [];
         foreach($variables as $variable => $value){
             if(is_bool($value)) {
-                $convertedVariables[] = "-{$variable}";
+                // Top level requests need booleans to be prefixed (for example channellist),
+                // but when creating a channel the booleans are read like normal variables
+                if($prefixBooleans){
+                    $convertedVariables[] = "-{$variable}";
+                }else{
+                    $convertedVariables[] = "{$variable}=1";
+                }
             }else if(is_object($value)){
-                $convertedVariables = array_merge($convertedVariables, $this->generateGetParameters($value));
+                $convertedVariables = array_merge($convertedVariables, $this->generateGetParameters($value, false));
             }else if(null !== $value){
-                $convertedVariables[] = "{$variable}={$value}";
+                $convertedVariables[] = "{$variable}=".urlencode((string)$value);
             }
         }
         return $convertedVariables;

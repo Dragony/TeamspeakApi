@@ -14,8 +14,10 @@ class ChannelGroupAddRequestTest extends TestCase
     public function testRequest()
     {
         $adapter = AdapterFactory::create();
+        $adapter->setServerId(1);
 
-        $request = new ChannelGroupAddRequest();
+        // Group name must be unique
+        $request = new ChannelGroupAddRequest('testgroup ' . uniqid());
 
         $response = $adapter->request($request);
 

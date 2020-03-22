@@ -7,6 +7,7 @@ namespace Request;
 use Dragony\TeamspeakApi\Request\ChannelGroupDelRequest;
 use Helper\AdapterFactory;
 use Helper\ResponseReader;
+use Helper\TeamspeakArtifactFactory;
 use PHPUnit\Framework\TestCase;
 
 class ChannelGroupDelRequestTest extends TestCase
@@ -14,8 +15,11 @@ class ChannelGroupDelRequestTest extends TestCase
     public function testRequest()
     {
         $adapter = AdapterFactory::create();
+        $adapter->setServerId(1);
 
-        $request = new ChannelGroupDelRequest();
+        $group = TeamspeakArtifactFactory::addChannelGroup();
+
+        $request = new ChannelGroupDelRequest($group['cgid']);
 
         $response = $adapter->request($request);
 

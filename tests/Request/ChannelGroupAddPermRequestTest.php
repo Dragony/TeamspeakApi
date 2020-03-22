@@ -17,7 +17,7 @@ class ChannelGroupAddPermRequestTest extends TestCase
         $adapter = AdapterFactory::create();
         $adapter->setServerId(1);
 
-        $channelGroup = ExistingItems::getExistingChannelGroupList();
+        $channelGroup = ExistingItems::getExistingChannelGroup();
         $perm = ExistingItems::getExistingPerm();
         $request = new ChannelGroupAddPermRequest($channelGroup['cgid'], 50, $perm['permid']);
 
