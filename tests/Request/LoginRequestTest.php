@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Request;
 
 use Dragony\TeamspeakApi\Request\LoginRequest;
+use Dragony\TeamspeakApi\Response\ErrorResponse;
 use Helper\AdapterFactory;
-use Helper\ResponseReader;
 use PHPUnit\Framework\TestCase;
 
 class LoginRequestTest extends TestCase
@@ -15,10 +15,11 @@ class LoginRequestTest extends TestCase
     {
         $adapter = AdapterFactory::create();
 
-        $request = new LoginRequest();
+        $request = new LoginRequest('serveradmin', 'abc');
 
         $response = $adapter->request($request);
 
-        $this->assertInstanceOf($request->getResponseClass(), $response, ResponseReader::getMessage($response));
+        $this->assertInstanceOf(ErrorResponse::class, $response);
+        $this->assertEquals('out of scope', $response->message);
     }
 }

@@ -4,18 +4,18 @@ declare(strict_types=1);
 
 namespace Request;
 
-use Dragony\TeamspeakApi\Request\MessageAddRequest;
+use Dragony\TeamspeakApi\Request\PermOverviewRequest;
 use Helper\AdapterFactory;
 use Helper\ResponseReader;
 use PHPUnit\Framework\TestCase;
 
-class MessageAddRequestTest extends TestCase
+class PermOverviewRequestTest extends TestCase
 {
     public function testRequest()
     {
         $adapter = AdapterFactory::create();
 
-        $request = new MessageAddRequest();
+        $request = new PermOverviewRequest();
 
         $response = $adapter->request($request);
 

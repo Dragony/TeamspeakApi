@@ -4,18 +4,21 @@ declare(strict_types=1);
 
 namespace Request;
 
-use Dragony\TeamspeakApi\Request\MessageupdateflagRequest;
+use Dragony\TeamspeakApi\Request\PermidGetbyNameRequest;
 use Helper\AdapterFactory;
+use Helper\ExistingItems;
 use Helper\ResponseReader;
 use PHPUnit\Framework\TestCase;
 
-class MessageupdateflagRequestTest extends TestCase
+class PermidGetbyNameRequestTest extends TestCase
 {
     public function testRequest()
     {
         $adapter = AdapterFactory::create();
+        $adapter->setServerId(1);
 
-        $request = new MessageupdateflagRequest();
+        $perm = ExistingItems::getExistingPerm();
+        $request = new PermidGetbyNameRequest($perm['permname']);
 
         $response = $adapter->request($request);
 

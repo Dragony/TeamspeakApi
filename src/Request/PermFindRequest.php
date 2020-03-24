@@ -11,7 +11,7 @@ class PermFindRequest implements TeamspeakRequestInterface
     public $permid; /* permID */
 	public $permsid; /* permName */
 
-    public function __construct($permid, $permsid)
+    public function __construct($permid = null, $permsid = null)
     {
         $this->permid = $permid;
 		$this->permsid = $permsid;

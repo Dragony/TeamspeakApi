@@ -13,6 +13,7 @@
     <testsuites>
         <testsuite name="Project Test Suite">
             <directory>tests</directory>
+            <exclude>./tests/Request/Ft*</exclude>
         </testsuite>
     </testsuites>
 

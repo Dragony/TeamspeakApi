@@ -6,7 +6,7 @@ namespace Dragony\TeamspeakApi\Request;
 
 use Dragony\TeamspeakApi\Response\GenericResponse;
 
-class MessageupdateflagRequest implements TeamspeakRequestInterface
+class MessageUpdateFlagRequest implements TeamspeakRequestInterface
 {
     public $msgid; /* messageID */
 	public $flag; /* 1|0 */

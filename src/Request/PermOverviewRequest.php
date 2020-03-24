@@ -6,7 +6,7 @@ namespace Dragony\TeamspeakApi\Request;
 
 use Dragony\TeamspeakApi\Response\GenericResponse;
 
-class PerMoverViewRequest implements TeamspeakRequestInterface
+class PermOverviewRequest implements TeamspeakRequestInterface
 {
     public $cid; /* channelID */
 	public $cldbid; /* clientDBID */

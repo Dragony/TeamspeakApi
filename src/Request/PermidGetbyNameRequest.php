@@ -6,7 +6,7 @@ namespace Dragony\TeamspeakApi\Request;
 
 use Dragony\TeamspeakApi\Response\GenericResponse;
 
-class PermidGetbynameRequest implements TeamspeakRequestInterface
+class PermidGetbyNameRequest implements TeamspeakRequestInterface
 {
     public $permsid; /* permName */
 

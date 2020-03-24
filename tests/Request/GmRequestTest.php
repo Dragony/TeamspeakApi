@@ -15,7 +15,7 @@ class GmRequestTest extends TestCase
     {
         $adapter = AdapterFactory::create();
 
-        $request = new GmRequest();
+        $request = new GmRequest("Test message");
 
         $response = $adapter->request($request);
 

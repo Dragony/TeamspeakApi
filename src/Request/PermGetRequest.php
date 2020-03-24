@@ -9,13 +9,11 @@ use Dragony\TeamspeakApi\Response\GenericResponse;
 class PermGetRequest implements TeamspeakRequestInterface
 {
     public $permid; /* permID */
-	public $ermget;
 	public $permsid; /* permName */
 
-    public function __construct($permid, bool $ermget, $permsid)
+    public function __construct($permid = null, $permsid = null)
     {
         $this->permid = $permid;
-		$this->ermget = $ermget;
 		$this->permsid = $permsid;
     }
 

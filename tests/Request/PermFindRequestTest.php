@@ -6,6 +6,7 @@ namespace Request;
 
 use Dragony\TeamspeakApi\Request\PermFindRequest;
 use Helper\AdapterFactory;
+use Helper\ExistingItems;
 use Helper\ResponseReader;
 use PHPUnit\Framework\TestCase;
 
@@ -14,8 +15,10 @@ class PermFindRequestTest extends TestCase
     public function testRequest()
     {
         $adapter = AdapterFactory::create();
+        $adapter->setServerId(1);
 
-        $request = new PermFindRequest();
+        $perm = ExistingItems::getExistingPerm();
+        $request = new PermFindRequest($perm['permid']);
 
         $response = $adapter->request($request);
 

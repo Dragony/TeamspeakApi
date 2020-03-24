@@ -15,7 +15,7 @@ class LogAddRequestTest extends TestCase
     {
         $adapter = AdapterFactory::create();
 
-        $request = new LogAddRequest();
+        $request = new LogAddRequest(4, 'test log message');
 
         $response = $adapter->request($request);
 
